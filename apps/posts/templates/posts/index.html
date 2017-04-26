@@ -18,7 +18,8 @@
 <div class="container">
 	<div class="row">
 		<h1 style="display: inline-block">My Notes</h1>
-		<img src="https://articulate-heroes.s3.amazonaws.com/uploads/rte/kgrtehja_DancingBannana.gif" height="60">
+		{% load staticfiles %}
+		<img src="{% static 'dancing_banana.gif' %}" height="60">
 	</div>
 	<div class="row notes">
 		{% for note in notes %}

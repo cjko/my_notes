@@ -1,0 +1,19 @@
+{% for note in notes %}
+  <div class="note">
+  	{% if note_id == note.id and edit %}
+  		<form class="save form-group" action="/" method="post" href="save/{{note.id}}">
+  			{% csrf_token %}
+  			<textarea class="form-control" rows="4" name="text">{{note.text}}</textarea>
+  			<br>
+  			<input type="submit" name="submit" class="btn btn-primary btn-sm" value="Save">
+  		</form>
+  	{% else %}
+  		{{note.text}}
+  	{% endif %}
+
+  	<br><br>
+  	<hr>
+  	<button class="edit btn btn-default btn-sm" href="edit/{{note.id}}">Edit</button>
+	<button class="delete btn btn-danger btn-sm" href="delete/{{note.id}}">Delete</button>
+  </div>
+{% endfor %}
